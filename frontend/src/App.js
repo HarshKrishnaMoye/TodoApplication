@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <CreateTodo refreshTodos={fetchTodos} />
-      <Todo todo={todos} />
+      <Todo refreshTodos={fetchTodos} todo={todos} />
     </div>
   );
 }

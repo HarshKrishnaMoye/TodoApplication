@@ -36,21 +36,30 @@ app.get("/todos", async (req, res) => {
   });
 });
 
-app.put("/completed", (req, res) => {
+app.put("/completed", async (req, res) => {
   const updatePayload = req.body;
+
   const parsedPayload = updateTodo.safeParse(updatePayload);
   if (!parsedPayload.success) {
-    res.status(411).json({
+    return res.status(411).json({
       msg: "You Have Sent The Wrong Input",
     });
-    return;
   }
-  const complete = todo.update(
-    {
-      _id: req.body.id,
-    },
-    { completed: true }
+
+  const todoToUpdate = await todo.findById(updatePayload.id);
+  if (!todoToUpdate) {
+    return res.status(404).json({ msg: "Todo not found." });
+  }
+
+  const updatedTodo = await todo.findByIdAndUpdate(
+    { _id: updatePayload.id },
+    { completed: !todoToUpdate.completed }
   );
+
+  res.json({
+    msg: "Todo status updated",
+    todo: updatedTodo,
+  });
 });
 
 app.listen(port);

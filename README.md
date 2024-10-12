@@ -32,13 +32,12 @@ Welcome to the Todo Application! This is a simple yet powerful todo list app bui
 
   
 
-- Create and Read tasks
+- Create, Read, Update, and Delete tasks (CRUD functionality)
 
 - User-friendly interface
 
 - Data validation using Zod
 
-- Responsive design
 
   
 
@@ -118,7 +117,7 @@ npm run start
 
 1. Open your browser and go to `http://localhost:3000`.
 
-2. You can add and view your todos.
+2. You can add, view, update, and delete your todos.
 
   
 
@@ -135,8 +134,8 @@ The application utilizes **Zod** for validating inputs, ensuring that data enter
   
 
 If you would like to contribute to this project, please feel free to fork the repository and submit a pull request. All contributions are welcome!
-  
 
+  
 
 
 ## Contact
@@ -149,4 +148,4 @@ Email: [harshmoye03@gmail.com](mailto:harshmoye03@gmail.com)
 
 GitHub: [HarshKrishnaMoye](https://github.com/HarshKrishnaMoye)
 
-LinkedIn: [Harsh Moye](https://www.linkedin.com/in/harsh-moye-2646952a9/
+LinkedIn: [Harsh Moye](https://www.linkedin.com/in/harsh-moye-2646952a9/)

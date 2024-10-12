@@ -29,6 +29,31 @@ function Todo({ todo, refreshTodos }) {
             <button onClick={() => handleToggleComplete(todo._id)}>
               {todo.completed ? "Completed" : "Pending"}
             </button>
+            <button
+              onClick={async () => {
+                const response = await fetch(
+                  "http://localhost:3001/deleteTodo",
+                  {
+                    method: "DELETE",
+                    body: JSON.stringify({
+                      id: todo._id,
+                    }),
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  }
+                );
+                console.log(response);
+                if (!response.ok) {
+                  console.error("Failed to delete todo.");
+                } else {
+                  refreshTodos();
+                  console.log("Todo deleted successfully.");
+                }
+              }}
+            >
+              Delete Todo
+            </button>
           </div>
         );
       })}

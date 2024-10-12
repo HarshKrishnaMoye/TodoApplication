@@ -9,7 +9,12 @@ const updateTodo = z.object({
   id: z.string(),
 });
 
+const deleteTodo = z.object({
+  id: z.string(),
+});
+
 module.exports = {
   createTodo: createTodo,
   updateTodo: updateTodo,
+  deleteTodo: deleteTodo,
 };
